@@ -1,8 +1,3 @@
-// Lab_04_7.cpp
-// < Цай Девід >
-// Лабораторна робота № 4.7
-// Обчислення суми ряду Тейлора за допомогою ітераційних циклів та рекурентних
-// Варіант 23
 #include <iostream>
 #include <iomanip>
 #include <cmath>
@@ -17,9 +12,9 @@ int main() {
 
     cout << fixed;
     cout << "-------------------------------------------------" << endl;
-    cout << "|" << setw(5) << "x" << "   |"
+    cout << "|" << setw(7) << "x" << "   |"
         << setw(10) << "exp(x)" << " |"
-        << setw(7) << "S" << "    |"
+        << setw(10) << "S" << "    |"
         << setw(5) << "n" << " |"
         << endl;
     cout << "-------------------------------------------------" << endl;
@@ -30,14 +25,14 @@ int main() {
         double a = 1, R, S = 1;
 
         do {
-            R = x / (n + 1);
+            n++;
+            R = x * x / n;
             a *= R;
             S += a;
-            n++;
         } while (abs(a) >= eps);
 
         cout << "|" << setw(7) << setprecision(2) << x << " |"
-            << setw(10) << setprecision(5) << exp(x) << " |"
+            << setw(10) << setprecision(5) << exp(pow(x, 2)) << " |"
             << setw(10) << setprecision(5) << S << " |"
             << setw(5) << n << " |"
             << endl;
